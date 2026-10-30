@@ -35,6 +35,10 @@ public class CartDisplay {
                             System.out.println("It feels a little empty in here..");
                             break;
                         }
+                        Main.read.nextLine();
+                        System.out.println("Please Enter Your Social Security Number Here!");
+                        Main.read.nextLine();
+
 
                         System.out.println("Thank you for your purchase!");
                         cart.clear(); // This will clear out the cart since the customer "purchased" the items.

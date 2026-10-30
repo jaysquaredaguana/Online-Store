@@ -8,5 +8,4 @@ public class StoreHomeScreen {
         System.out.print("Choose an option: ");
         return Main.read.nextInt();
     }
-
 }
