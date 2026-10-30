@@ -41,7 +41,6 @@ public class CartDisplay {
                         return;
 
                     case 2:
-                        System.out.println("Removing the selected product");
                         Main.removeFromCart(); // This will remove an item from the cart
                         break;
 
