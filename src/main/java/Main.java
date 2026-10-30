@@ -7,27 +7,28 @@ import java.util.Scanner;
 
 public class Main {
 
-    static ArrayList<Product> inventory = new ArrayList<>();
-    static HashMap<Product, Integer> cart = new HashMap<>();
-    static Scanner read = new Scanner(System.in);
+    public static ArrayList<Product> inventory = new ArrayList<>();
+    public static HashMap<Product, Integer> cart = new HashMap<>();
+    public static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) {
         loadInventory();
-        inventory.remove(0); // removes the format line
+//        inventory.remove(0); // removes the format line
         // Scanner read = new Scanner(System.in);
 
         int command = 0;
 
         while (command != 5) {
-//            System.out.println("\nWhat do you want to do?");
-//            System.out.println("1- List all products");
-//            System.out.println("2- Search by product name");
-//            System.out.println("3- Find all products within a price range");
+            System.out.println("\nWhat do you want to do?");
+            System.out.println("1- List all products");
+            System.out.println("2- View Cart");
+            System.out.println("3- Exit");
 //            System.out.println("4- Search by department");
 //            System.out.println("5- Add a product to cart");
 //            System.out.println("6- Remove product from cart");
 //            System.out.println("7- Add product to inventory");
-//            System.out.println("8- Quit the application");
+//            System.out.println("8- View Shopping Cart");
+//            System.out.println("9- Quit the application");
 //            System.out.print("Enter command: ");
 
             command = read.nextInt();
@@ -35,20 +36,16 @@ public class Main {
 
             switch (command) {
                 case 1 -> viewAllProducts(); // Customers should be able to view all products
-                case 2 -> searchByProductName(); // search by product name
-                case 3 -> searchByPrice(); // search by price range
-                case 4 -> searchByDepartment(); // search by department
-                case 5 -> addToCart(); // add products to cart
-                case 6 -> removeFromCart(); // remove products from cart
-                case 7 -> addToInventory(); // add products to inventory
-                case 8 -> System.out.println("Thank you for using SearchInventory!");
-                default -> System.out.println("Invalid command. Please enter a number from 1 to 8.");
+                case 2 -> CartDisplay.displayCart(cart); // shows the existing items in the cart.
+                case 3 -> System.out.println("Thank you for using Search Inventory!");
+                default -> System.out.println("Invalid command. Please enter a number from 1 to 3.");
             }
         }
         read.close();
     }
 
     // method requirements
+
     public static void loadInventory() {
         try {
             // create a FileReader object
@@ -63,6 +60,8 @@ public class Main {
             // SKU|Product Name|Price|Department
             String sku, productName, department;
             double price;
+
+            bufReader.readLine();
 
             // read until there is no more data
             while ((input = bufReader.readLine()) != null) {
