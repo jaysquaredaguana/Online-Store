@@ -25,8 +25,9 @@ public class Main {
             System.out.println("3- Find all products within a price range");
             System.out.println("4- Search by department");
             System.out.println("5- Add a product to cart");
-            System.out.println("6- ");
-            System.out.println("7- Quit the application");
+            System.out.println("6- Remove product from cart");
+            System.out.println("7- Add product to inventory");
+            System.out.println("8- Quit the application");
             System.out.print("Enter command: ");
 
             command = read.nextInt();
@@ -37,40 +38,11 @@ public class Main {
                 case 2 -> searchByProductName(); // search by product name
                 case 3 -> searchByPrice(); // search by price range
                 case 4 -> searchByDepartment(); // search by department
-                // Customers should be able to add products to their cart
-                case 5 -> {
-                    StringBuilder skuBuilder = new StringBuilder();
-
-                    System.out.print("Enter product name: ");
-                    String name = read.nextLine();
-
-                    System.out.print("Enter product price: ");
-                    double price = read.nextDouble();
-                    read.nextLine();
-
-                    System.out.print("Enter product SKU: ");
-                    String department = read.nextLine();
-
-                    // departments: AV, CP, GM, PW
-                    switch (department) {
-                        case "Audio Video" -> skuBuilder.append("AV");
-                        case "Computers" -> skuBuilder.append("CP");
-                        case "Games" -> skuBuilder.append("GM");
-                        case "Electronics" -> skuBuilder.append("PW");
-                        default -> skuBuilder.append("__");
-                    }
-                    // random four digit SKU
-                    int randomSku = (int)(Math.random() * 10000);
-                    skuBuilder.append(String.format("%04d", randomSku));
-                    String sku = skuBuilder.toString();
-
-                    Product newProduct = new Product(sku, name, price, department);
-                    inventory.add(newProduct);
-
-                    System.out.println("Product added successfully!");
-                }
-                case 6 -> System.out.println("Thank you for using SearchInventory!");
-                default -> System.out.println("Invalid command. Please enter a number from 1 to 5.");
+                case 5 -> addToCart(); // add products to cart
+                case 6 -> removeFromCart(); // remove products from cart
+                case 7 -> addToInventory(); // add products to inventory
+                case 8 -> System.out.println("Thank you for using SearchInventory!");
+                default -> System.out.println("Invalid command. Please enter a number from 1 to 8.");
             }
         }
         read.close();
@@ -157,6 +129,7 @@ public class Main {
         String sku = read.nextLine();
 
         boolean found = false;
+
         for (Product product : inventory) {
             if (product.getSku().equalsIgnoreCase(sku)) {
                 cart.compute(product, (key, value) -> value == null ? 1 : value + 1);
@@ -167,8 +140,59 @@ public class Main {
 
         if (!found) {
             System.out.println("Product not found.");
+        } else {
+            System.out.println("Successfully added to cart!");
+        }
+    }
+    public static void removeFromCart() {
+        System.out.print("Enter product SKU: ");
+        String sku = read.nextLine();
+
+        boolean found = false;
+
+        for (Product product : inventory) {
+            if (product.getSku().equalsIgnoreCase(sku)) {
+                cart.remove(product);
+                found = true;
+                break;
+            }
         }
 
-        System.out.println("Successfully added to cart!");
+        if (!found) {
+            System.out.println("Product not found.");
+        } else {
+            System.out.println("Successfully removed item from cart!");
+        }
+    }
+    public static void addToInventory() {
+        StringBuilder skuBuilder = new StringBuilder();
+
+        System.out.print("Enter product name: ");
+        String name = read.nextLine();
+
+        System.out.print("Enter product price: ");
+        double price = read.nextDouble();
+        read.nextLine();
+
+        System.out.print("Enter product SKU: ");
+        String department = read.nextLine();
+
+        // departments: AV, CP, GM, PW
+        switch (department) {
+            case "Audio Video" -> skuBuilder.append("AV");
+            case "Computers" -> skuBuilder.append("CP");
+            case "Games" -> skuBuilder.append("GM");
+            case "Electronics" -> skuBuilder.append("PW");
+            default -> skuBuilder.append("__");
+        }
+        // random four digit SKU
+        int randomSku = (int)(Math.random() * 10000);
+        skuBuilder.append(String.format("%04d", randomSku));
+        String sku = skuBuilder.toString();
+
+        Product newProduct = new Product(sku, name, price, department);
+        inventory.add(newProduct);
+
+        System.out.println("Product successfully added to inventory!");
     }
 }
