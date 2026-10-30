@@ -17,7 +17,7 @@ public class CartDisplay {
 
             total += subtotal; // adding all the items together with each iteration.
 
-            System.out.printf("%s - Quantity: %d = $%.2f", product.getProductName(), quantity, subtotal);
+            System.out.printf("%s - Quantity: %d = $%.2f%n", product.getProductName(), quantity, subtotal);
 
             }
 

@@ -39,7 +39,7 @@ public class ProductDisplay {
             case 1 -> Main.searchByProductName();
             case 2 -> Main.viewAllProducts();
             case 3 -> Main.addToCart();
-            case 4 -> StoreHomeScreen.displayHomeMenu();
+            case 4 -> {}
             default -> System.out.println(("Invalid Input Enter 1-4."));
 
         }
