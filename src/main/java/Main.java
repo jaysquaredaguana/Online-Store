@@ -16,11 +16,9 @@ public class Main {
         // inventory.remove(0); // removes the format line
         // Scanner read = new Scanner(System.in);
 
+
         int command = 0;
-
-
         while (command != 3) {
-
             command = StoreHomeScreen.displayHomeMenu();
             read.nextLine();
 
