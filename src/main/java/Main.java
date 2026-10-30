@@ -18,19 +18,13 @@ public class Main {
 
         int command = StoreHomeScreen.displayHomeMenu();
 
-        while (command != 3) { // While choice is not 3, run menu, exits if 3 is chosen
-//            System.out.println("\nWhat do you want to do?");
-//            System.out.println("1- List all products");
-//            System.out.println("2- Search by product name");
-//            System.out.println("3- Find all products within a price range");
-//            System.out.println("4- Search by department");
-//            System.out.println("5- Add a product to cart");
-//            System.out.println("6- Remove product from cart");
-//            System.out.println("7- Add product to inventory");
-//            System.out.println("8- Quit the application");
-//            System.out.print("Enter command: ");
+        while (command != 3) {
+            System.out.println("\nWhat do you want to do?");
+            System.out.println("1- List all products");
+            System.out.println("2- View Cart");
+            System.out.println("3- Exit");
 
-            // command = read.nextInt();
+//            command = read.nextInt();
             read.nextLine();
 
             switch (command) {
@@ -44,6 +38,7 @@ public class Main {
     }
 
     // method requirements
+
     public static void loadInventory() {
         try {
             // create a FileReader object
@@ -58,6 +53,8 @@ public class Main {
             // SKU|Product Name|Price|Department
             String sku, productName, department;
             double price;
+
+            bufReader.readLine();
 
             // read until there is no more data
             bufReader.readLine();
