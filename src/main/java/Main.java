@@ -159,18 +159,11 @@ public class Main {
         boolean found = false;
         for (Product product : inventory) {
             if (product.getSku().equalsIgnoreCase(sku)) {
-                cart.put(product, 1);
-
-                // Shortcut using Method Reference for integers
-                cart.merge(product, 1, Integer::sum);
-
+                cart.compute(product, (key, value) -> value == null ? 1 : value + 1);
                 found = true;
                 break;
             }
         }
-
-        // Product newProduct = new Product(sku, name, price, department);
-        // inventory.add(newProduct);
 
         System.out.println("Successfully added to cart!");
     }
