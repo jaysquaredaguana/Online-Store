@@ -15,10 +15,11 @@ public class Main {
         loadInventory();
         // inventory.remove(0); // removes the format line
         // Scanner read = new Scanner(System.in);
+        int command;
+        do { // Run the menu at least once
+            command = StoreHomeScreen.displayHomeMenu();
 
-        int command = StoreHomeScreen.displayHomeMenu();
-
-        while (command != 3) { // While choice is not 3, run menu, exits if 3 is chosen
+        //while (command != 3) { // While choice is not 3, run menu, exits if 3 is chosen
 //            System.out.println("\nWhat do you want to do?");
 //            System.out.println("1- List all products");
 //            System.out.println("2- Search by product name");
@@ -39,7 +40,7 @@ public class Main {
                 case 3 -> System.out.println("Thank you for using our store!"); // Exiting from menu
                 default -> System.out.println("Invalid command. Please enter a number from 1 to 3.");
             }
-        }
+        }while (command != 3); // While choice is not 3 menu is run, exits when 3 is chosen.
         read.close();
     }
 
