@@ -37,12 +37,12 @@ public class CartDisplay {
                         }
 
                         System.out.println("Thank you for your purchase!");
-                        cart.clear();
+                        cart.clear(); // This will clear out the cart since the customer "purchased" the items.
                         return;
 
                     case 2:
                         System.out.println("Removing the selected product");
-                        Main.removeFromCart();
+                        Main.removeFromCart(); // This will remove an item from the cart
                         break;
 
                     case 3:
