@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         loadInventory();
-//        inventory.remove(0); // removes the format line
+        // inventory.remove(0); // removes the format line
         // Scanner read = new Scanner(System.in);
 
         int command = StoreHomeScreen.displayHomeMenu();
@@ -29,8 +29,8 @@ public class Main {
 
             switch (command) {
                 case 1 -> viewAllProducts(); // Customers should be able to view all products
-                case 2 -> CartDisplay.displayCart(cart); // shows the existing items in the cart.
-                case 3 -> System.out.println("Thank you for using Search Inventory!");
+                case 2 -> CartDisplay.cartDisplay(cart); // Command to view cart
+                case 3 -> System.out.println("Thank you for using our store!"); // Exiting from menu
                 default -> System.out.println("Invalid command. Please enter a number from 1 to 3.");
             }
         }
@@ -57,6 +57,7 @@ public class Main {
             bufReader.readLine();
 
             // read until there is no more data
+            bufReader.readLine();
             while ((input = bufReader.readLine()) != null) {
                 productInfo = input.split("\\|");
                 sku = productInfo[0];
@@ -187,17 +188,5 @@ public class Main {
         inventory.add(newProduct);
 
         System.out.println("Product successfully added to inventory!");
-    }
-
-    // screens
-    public static void storeHomeScreen() {
-        // Display Products
-        // Display Cart
-        // Exit - closes out of the application
-        System.out.println("\nWhat do you want to do?");
-        System.out.println("1- List all products");
-        System.out.println("2- Display cart");
-        System.out.println("3- Quit the application");
-        System.out.print("Enter command: ");
     }
 }
