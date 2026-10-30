@@ -165,6 +165,10 @@ public class Main {
             }
         }
 
+        if (!found) {
+            System.out.println("Product not found.");
+        }
+        
         System.out.println("Successfully added to cart!");
     }
 }
