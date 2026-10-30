@@ -18,7 +18,7 @@ public class Main {
 
         int command = 0;
 
-        while (command != 5) {
+        while (command != 8) {
 //            System.out.println("\nWhat do you want to do?");
 //            System.out.println("1- List all products");
 //            System.out.println("2- Search by product name");
@@ -41,10 +41,7 @@ public class Main {
                 case 5 -> addToCart(); // add products to cart
                 case 6 -> removeFromCart(); // remove products from cart
                 case 7 -> addToInventory(); // add products to inventory
-                case 8 -> {
-                    System.out.println("Thank you for using SearchInventory!");
-                    command = 5;
-                }
+                case 8 -> System.out.println("Thank you for using SearchInventory!");
                 default -> System.out.println("Invalid command. Please enter a number from 1 to 8.");
             }
         }
