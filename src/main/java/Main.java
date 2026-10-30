@@ -23,7 +23,7 @@ public class Main {
             read.nextLine();
 
             switch (command) {
-                case 1 -> viewAllProducts(); // Customers should be able to view all products
+                case 1 -> ProductDisplay.showProducts(); // Customers should be able to view all products
                 case 2 -> CartDisplay.displayCart(cart); // Command to view cart
                 case 3 -> System.out.println("Thank you for using our store!"); // Exiting from menu
                 default -> System.out.println("Invalid command. Please enter a number from 1 to 3.");
