@@ -20,7 +20,7 @@ public class Main {
         int command = 0;
         while (command != 3) {
             command = StoreHomeScreen.displayHomeMenu();
-            read.nextLine();
+            // read.nextLine();
 
             switch (command) {
                 case 1 -> ProductDisplay.showProducts(); // Customers should be able to view all products
@@ -115,6 +115,7 @@ public class Main {
     }
     public static void addToCart() {
         System.out.print("Enter product SKU: ");
+        read.nextLine();
         String sku = read.nextLine();
 
         boolean found = false;
@@ -135,6 +136,7 @@ public class Main {
     }
     public static void removeFromCart() {
         System.out.print("Enter product SKU: ");
+        read.nextLine();
         String sku = read.nextLine();
 
         boolean found = false;
