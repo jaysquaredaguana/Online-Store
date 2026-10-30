@@ -30,6 +30,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format(Locale.US, "%-8s %-32s $%8.2f   %s", sku, productName, price, department);
+        return String.format(Locale.US, "%-8s %-32s $%8.2f   %s",
+                sku, productName, price, department);
     }
 }
