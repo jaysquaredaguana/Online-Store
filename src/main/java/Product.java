@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Product {
     // SKU|Product Name|Price|Department
     private String sku, productName, department;
@@ -28,11 +30,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "sku='" + sku + '\'' +
-                ", productName='" + productName + '\'' +
-                ", department='" + department + '\'' +
-                ", price=" + price +
-                '}';
+        return String.format(Locale.US, "%-8s %-32s $%8.2f   %s",
+                sku, productName, price, department);
     }
 }
