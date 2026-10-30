@@ -18,7 +18,7 @@ public class Main {
 
         int command = StoreHomeScreen.displayHomeMenu();
 
-        while (command != 3) {
+        while (command != 3) { // While choice is not 3, run menu, exits if 3 is chosen
 //            System.out.println("\nWhat do you want to do?");
 //            System.out.println("1- List all products");
 //            System.out.println("2- Search by product name");
@@ -36,7 +36,7 @@ public class Main {
             switch (command) {
                 case 1 -> viewAllProducts(); // Customers should be able to view all products
                 case 2 -> CartDisplay.cartDisplay(cart); // Command to view cart
-                case 3 -> System.out.println("Thank you for using our store!");
+                case 3 -> System.out.println("Thank you for using our store!"); // Exiting from menu
                 default -> System.out.println("Invalid command. Please enter a number from 1 to 3.");
             }
         }
@@ -191,17 +191,5 @@ public class Main {
         inventory.add(newProduct);
 
         System.out.println("Product successfully added to inventory!");
-    }
-
-    // screens
-    public static void storeHomeScreen() {
-        // Display Products
-        // Display Cart
-        // Exit - closes out of the application
-        System.out.println("\nWhat do you want to do?");
-        System.out.println("1- List all products");
-        System.out.println("2- Display cart");
-        System.out.println("3- Quit the application");
-        System.out.print("Enter command: ");
     }
 }
