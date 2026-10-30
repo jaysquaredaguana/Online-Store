@@ -36,8 +36,8 @@ public class ProductDisplay {
             }
             //Calling
         switch(number) {
-            case 1 -> Main.viewAllProducts();
-            case 2 -> Main.searchByProductName();
+            case 1 -> Main.searchByProductName();
+            case 2 -> Main.viewAllProducts();
             case 3 -> Main.addToCart();
             case 4 -> StoreHomeScreen.displayHomeMenu();
             default -> System.out.println(("Invalid Input Enter 1-4."));

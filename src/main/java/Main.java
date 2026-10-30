@@ -16,19 +16,16 @@ public class Main {
         // inventory.remove(0); // removes the format line
         // Scanner read = new Scanner(System.in);
 
-        int command = StoreHomeScreen.displayHomeMenu();
+        int command = 0;
+
 
         while (command != 3) {
-            System.out.println("\nWhat do you want to do?");
-            System.out.println("1- List all products");
-            System.out.println("2- View Cart");
-            System.out.println("3- Exit");
 
-//            command = read.nextInt();
+            command = StoreHomeScreen.displayHomeMenu();
             read.nextLine();
 
             switch (command) {
-                case 1 -> viewAllProducts(); // Customers should be able to view all products
+                case 1 -> ProductDisplay.showProducts(); // Customers should be able to view all products
                 case 2 -> CartDisplay.displayCart(cart); // Command to view cart
                 case 3 -> System.out.println("Thank you for using our store!"); // Exiting from menu
                 default -> System.out.println("Invalid command. Please enter a number from 1 to 3.");
