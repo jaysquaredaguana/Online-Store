@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class Main {
 
-    static ArrayList<Product> inventory = new ArrayList<>();
-    static HashMap<Product, Integer> cart = new HashMap<>();
-    static Scanner read = new Scanner(System.in);
+    public static ArrayList<Product> inventory = new ArrayList<>();
+    public static HashMap<Product, Integer> cart = new HashMap<>();
+    public static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) {
         loadInventory();
