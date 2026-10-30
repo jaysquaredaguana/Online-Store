@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     static ArrayList<Product> inventory = new ArrayList<>();
-    static HashMap<Product, Integer> cart = new HashMap();
+    static HashMap<Product, Integer> cart = new HashMap<>();
     static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -168,7 +168,7 @@ public class Main {
         if (!found) {
             System.out.println("Product not found.");
         }
-        
+
         System.out.println("Successfully added to cart!");
     }
 }
