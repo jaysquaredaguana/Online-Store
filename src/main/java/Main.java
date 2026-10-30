@@ -16,15 +16,10 @@ public class Main {
         // inventory.remove(0); // removes the format line
         // Scanner read = new Scanner(System.in);
 
-        int command = StoreHomeScreen.displayHomeMenu();
 
+        int command = 0;
         while (command != 3) {
-            System.out.println("\nWhat do you want to do?");
-            System.out.println("1- List all products");
-            System.out.println("2- View Cart");
-            System.out.println("3- Exit");
-
-//            command = read.nextInt();
+            command = StoreHomeScreen.displayHomeMenu();
             read.nextLine();
 
             switch (command) {
