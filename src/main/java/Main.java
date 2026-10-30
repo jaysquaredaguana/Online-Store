@@ -16,39 +16,29 @@ public class Main {
         // inventory.remove(0); // removes the format line
         // Scanner read = new Scanner(System.in);
 
-        int command = 0;
+        int command = StoreHomeScreen.displayHomeMenu();
 
-        while (command != 8) {
-//            System.out.println("\nWhat do you want to do?");
-//            System.out.println("1- List all products");
-//            System.out.println("2- Search by product name");
-//            System.out.println("3- Find all products within a price range");
-//            System.out.println("4- Search by department");
-//            System.out.println("5- Add a product to cart");
-//            System.out.println("6- Remove product from cart");
-//            System.out.println("7- Add product to inventory");
-//            System.out.println("8- Quit the application");
-//            System.out.print("Enter command: ");
+        while (command != 3) {
+            System.out.println("\nWhat do you want to do?");
+            System.out.println("1- List all products");
+            System.out.println("2- View Cart");
+            System.out.println("3- Exit");
 
-            command = read.nextInt();
+//            command = read.nextInt();
             read.nextLine();
 
             switch (command) {
                 case 1 -> viewAllProducts(); // Customers should be able to view all products
-                case 2 -> searchByProductName(); // search by product name
-                case 3 -> searchByPrice(); // search by price range
-                case 4 -> searchByDepartment(); // search by department
-                case 5 -> addToCart(); // add products to cart
-                case 6 -> removeFromCart(); // remove products from cart
-                case 7 -> addToInventory(); // add products to inventory
-                case 8 -> System.out.println("Thank you for using SearchInventory!");
-                default -> System.out.println("Invalid command. Please enter a number from 1 to 8.");
+                case 2 -> CartDisplay.cartDisplay(cart); // Command to view cart
+                case 3 -> System.out.println("Thank you for using our store!"); // Exiting from menu
+                default -> System.out.println("Invalid command. Please enter a number from 1 to 3.");
             }
         }
         read.close();
     }
 
     // method requirements
+
     public static void loadInventory() {
         try {
             // create a FileReader object
@@ -63,6 +53,8 @@ public class Main {
             // SKU|Product Name|Price|Department
             String sku, productName, department;
             double price;
+
+            bufReader.readLine();
 
             // read until there is no more data
             bufReader.readLine();
@@ -196,17 +188,5 @@ public class Main {
         inventory.add(newProduct);
 
         System.out.println("Product successfully added to inventory!");
-    }
-
-    // screens
-    public static void storeHomeScreen() {
-        // Display Products
-        // Display Cart
-        // Exit - closes out of the application
-        System.out.println("\nWhat do you want to do?");
-        System.out.println("1- List all products");
-        System.out.println("2- Display cart");
-        System.out.println("3- Quit the application");
-        System.out.print("Enter command: ");
     }
 }
