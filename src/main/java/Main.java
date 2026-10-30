@@ -19,16 +19,16 @@ public class Main {
         int command = 0;
 
         while (command != 5) {
-            System.out.println("\nWhat do you want to do?");
-            System.out.println("1- List all products");
-            System.out.println("2- Search by product name");
-            System.out.println("3- Find all products within a price range");
-            System.out.println("4- Search by department");
-            System.out.println("5- Add a product to cart");
-            System.out.println("6- Remove product from cart");
-            System.out.println("7- Add product to inventory");
-            System.out.println("8- Quit the application");
-            System.out.print("Enter command: ");
+//            System.out.println("\nWhat do you want to do?");
+//            System.out.println("1- List all products");
+//            System.out.println("2- Search by product name");
+//            System.out.println("3- Find all products within a price range");
+//            System.out.println("4- Search by department");
+//            System.out.println("5- Add a product to cart");
+//            System.out.println("6- Remove product from cart");
+//            System.out.println("7- Add product to inventory");
+//            System.out.println("8- Quit the application");
+//            System.out.print("Enter command: ");
 
             command = read.nextInt();
             read.nextLine();
@@ -48,6 +48,7 @@ public class Main {
         read.close();
     }
 
+    // method requirements
     public static void loadInventory() {
         try {
             // create a FileReader object
@@ -194,5 +195,17 @@ public class Main {
         inventory.add(newProduct);
 
         System.out.println("Product successfully added to inventory!");
+    }
+
+    // screens
+    public static void storeHomeScreen() {
+        // Display Products
+        // Display Cart
+        // Exit - closes out of the application
+        System.out.println("\nWhat do you want to do?");
+        System.out.println("1- List all products");
+        System.out.println("2- Display cart");
+        System.out.println("3- Quit the application");
+        System.out.print("Enter command: ");
     }
 }
