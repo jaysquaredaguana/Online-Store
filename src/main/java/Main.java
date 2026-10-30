@@ -13,12 +13,12 @@ public class Main {
 
     public static void main(String[] args) {
         loadInventory();
-        inventory.remove(0); // removes the format line
+        // inventory.remove(0); // removes the format line
         // Scanner read = new Scanner(System.in);
 
-        int command = 0;
+        int command = StoreHomeScreen.displayHomeMenu();
 
-        while (command != 5) {
+        while (command != 3) {
 //            System.out.println("\nWhat do you want to do?");
 //            System.out.println("1- List all products");
 //            System.out.println("2- Search by product name");
@@ -30,19 +30,14 @@ public class Main {
 //            System.out.println("8- Quit the application");
 //            System.out.print("Enter command: ");
 
-            command = read.nextInt();
+            // command = read.nextInt();
             read.nextLine();
 
             switch (command) {
                 case 1 -> viewAllProducts(); // Customers should be able to view all products
-                case 2 -> searchByProductName(); // search by product name
-                case 3 -> searchByPrice(); // search by price range
-                case 4 -> searchByDepartment(); // search by department
-                case 5 -> addToCart(); // add products to cart
-                case 6 -> removeFromCart(); // remove products from cart
-                case 7 -> addToInventory(); // add products to inventory
-                case 8 -> System.out.println("Thank you for using SearchInventory!");
-                default -> System.out.println("Invalid command. Please enter a number from 1 to 8.");
+                case 2 -> CartDisplay.cartDisplay(cart); // Command to view cart
+                case 3 -> System.out.println("Thank you for using our store!");
+                default -> System.out.println("Invalid command. Please enter a number from 1 to 3.");
             }
         }
         read.close();
@@ -65,6 +60,7 @@ public class Main {
             double price;
 
             // read until there is no more data
+            bufReader.readLine();
             while ((input = bufReader.readLine()) != null) {
                 productInfo = input.split("\\|");
                 sku = productInfo[0];
