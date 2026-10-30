@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class Main {
 
-    static ArrayList<Product> inventory = new ArrayList<>();
-    static HashMap<Product, Integer> cart = new HashMap<>();
-    static Scanner read = new Scanner(System.in);
+    public static ArrayList<Product> inventory = new ArrayList<>();
+    public static HashMap<Product, Integer> cart = new HashMap<>();
+    public static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) {
         loadInventory();
-        inventory.remove(0); // removes the format line
+        // inventory.remove(0); // removes the format line
         // Scanner read = new Scanner(System.in);
 
         int command = 0;
@@ -41,7 +41,10 @@ public class Main {
                 case 5 -> addToCart(); // add products to cart
                 case 6 -> removeFromCart(); // remove products from cart
                 case 7 -> addToInventory(); // add products to inventory
-                case 8 -> System.out.println("Thank you for using SearchInventory!");
+                case 8 -> {
+                    System.out.println("Thank you for using SearchInventory!");
+                    command = 5;
+                }
                 default -> System.out.println("Invalid command. Please enter a number from 1 to 8.");
             }
         }
@@ -65,6 +68,7 @@ public class Main {
             double price;
 
             // read until there is no more data
+            bufReader.readLine();
             while ((input = bufReader.readLine()) != null) {
                 productInfo = input.split("\\|");
                 sku = productInfo[0];
